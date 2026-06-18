@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact — ImmuneT-ME</title>
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="assets/brand/logo.png" alt="ImmuneT-ME"></a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="news.html">News</a>
+      <a href="publications.html">Publications</a>
+      <a href="previous-consortia.html">Previous Consortia</a>
+      <a href="contact.html" class="nav-cta">Contact Us</a>
+    </nav>
+    <button class="nav-burger" id="burger" aria-label="Toggle menu" aria-expanded="false">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+  <div class="nav-mobile" id="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="news.html">News</a>
+    <a href="publications.html">Publications</a>
+    <a href="previous-consortia.html">Previous Consortia</a>
+    <a href="contact.html" class="nav-cta">Contact Us</a>
+  </div>
+</header>
+
+<!-- ═══ HEADER ═══ -->
+<section style="background:#fff;">
+  <div style="max-width:1180px; margin:0 auto; padding:clamp(48px,6vw,88px) clamp(20px,4vw,44px) clamp(20px,3vw,32px);">
+    <div style="font-size:14px; font-weight:600; color:#0078E4;">Get in touch</div>
+    <h1 style="font-weight:700; font-size:clamp(27px,3.2vw,40px); letter-spacing:-.03em; line-height:1.02; margin:16px 0 0;">Contact.</h1>
+    <p style="font-size:clamp(16px,1.6vw,18.5px); line-height:1.65; color:#52606E; margin:22px 0 0; max-width:58ch;">For scientific collaboration, partnership, media or patient-organization enquiries, reach the coordinating investigators directly or send us a message.</p>
+  </div>
+</section>
+
+<!-- ═══ BODY ═══ -->
+<section style="background:#fff;">
+  <div style="max-width:1180px; margin:0 auto; padding:clamp(16px,2vw,32px) clamp(20px,4vw,44px) clamp(56px,7vw,96px); display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:clamp(24px,3vw,44px); align-items:start;">
+
+    <!-- FORM -->
+    <div style="background:#F7F8F7; border:1px solid #EAECEA; border-radius:18px; padding:clamp(26px,3vw,40px);">
+
+      <!-- Success state -->
+      <div id="success-state" style="display:none; min-height:380px; flex-direction:column; align-items:flex-start; justify-content:center;">
+        <div style="width:60px; height:60px; border-radius:50%; background:#7FC0FF; display:flex; align-items:center; justify-content:center;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#06294F" stroke-width="2.4"><path d="m5 13 4 4L19 7"/></svg>
+        </div>
+        <h2 style="font-weight:800; font-size:26px; letter-spacing:-.02em; margin:22px 0 0;">Message sent.</h2>
+        <p style="font-size:15.5px; line-height:1.6; color:#52606E; margin:12px 0 0;">Thank you for reaching out to ImmuneT-ME. We'll get back to you as soon as possible.</p>
+        <button class="btn-reset" id="reset-btn">Send another message</button>
+      </div>
+
+      <!-- Form -->
+      <form id="contact-form" novalidate>
+        <div style="font-weight:800; font-size:20px; letter-spacing:-.01em;">Send a message</div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:16px; margin-top:22px;">
+          <div>
+            <label for="name" style="display:block; font-size:13.5px; font-weight:600; color:#3A4654; margin-bottom:7px;">Name</label>
+            <input id="name" class="fld" type="text" name="name" required placeholder="Your name" autocomplete="name">
+          </div>
+          <div>
+            <label for="email" style="display:block; font-size:13.5px; font-weight:600; color:#3A4654; margin-bottom:7px;">Email</label>
+            <input id="email" class="fld" type="email" name="email" required placeholder="you@institution.org" autocomplete="email">
+          </div>
+        </div>
+        <div style="margin-top:16px;">
+          <label for="org" style="display:block; font-size:13.5px; font-weight:600; color:#3A4654; margin-bottom:7px;">Organization <span style="color:#9AA0A8; font-weight:500;">(optional)</span></label>
+          <input id="org" class="fld" type="text" name="organization" placeholder="University, hospital or organization" autocomplete="organization">
+        </div>
+        <div style="margin-top:16px;">
+          <label for="subject" style="display:block; font-size:13.5px; font-weight:600; color:#3A4654; margin-bottom:7px;">Subject</label>
+          <input id="subject" class="fld" type="text" name="subject" required placeholder="How can we help?">
+        </div>
+        <div style="margin-top:16px;">
+          <label for="message" style="display:block; font-size:13.5px; font-weight:600; color:#3A4654; margin-bottom:7px;">Message</label>
+          <textarea id="message" class="fld" name="message" required rows="5" placeholder="Your message…" style="resize:vertical; min-height:120px;"></textarea>
+        </div>
+        <label style="display:flex; align-items:flex-start; gap:10px; margin-top:18px; cursor:pointer;">
+          <input id="consent" type="checkbox" name="consent" required style="margin-top:2px; width:16px; height:16px; flex-shrink:0; accent-color:#0078E4; cursor:pointer;">
+          <span style="font-size:12.5px; line-height:1.5; color:#52606E;">I consent to the processing of my personal data for the purpose of responding to my enquiry, in line with the <a href="#" style="color:#0078E4; text-decoration:underline;">Privacy Policy</a>. I can withdraw this consent at any time.</span>
+        </label>
+        <button type="submit" class="btn-submit" style="margin-top:22px;">Send message</button>
+        <p style="font-size:12.5px; color:#9AA0A8; margin:14px 0 0; text-align:center;">We'll only use your details to respond to your enquiry.</p>
+      </form>
+    </div>
+
+    <!-- CONTACT CARDS -->
+    <div style="display:flex; flex-direction:column; gap:18px;">
+
+      <!-- Till Braun -->
+      <div style="background:#fff; border:1px solid #EAECEA; border-radius:18px; padding:clamp(24px,3vw,32px);">
+        <div style="display:flex; align-items:center; gap:14px;">
+          <div style="width:50px; height:50px; border-radius:12px; background:#06294F; color:#7FC0FF; display:flex; align-items:center; justify-content:center; font-weight:900; font-size:18px; letter-spacing:-.01em; flex-shrink:0;">TB</div>
+          <div>
+            <div style="font-weight:800; font-size:19px; letter-spacing:-.01em; white-space:nowrap;">Till Braun</div>
+            <div style="font-size:13.5px; color:#0078E4; font-weight:600;">Project lead</div>
+          </div>
+        </div>
+        <div style="height:1px; background:#EFF1F0; margin:22px 0;"></div>
+        <div style="display:flex; gap:12px; align-items:flex-start;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#06294F" stroke-width="1.7" style="flex-shrink:0; margin-top:2px;"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div style="font-size:14.5px; line-height:1.55; color:#4C5663;">Department I of Internal Medicine, University Hospital of Cologne<br>Kerpener Strasse 62, 50937 Cologne, Germany</div>
+        </div>
+        <div style="display:flex; gap:12px; align-items:center; margin-top:16px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#06294F" stroke-width="1.7" style="flex-shrink:0;"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          <a href="mailto:Till.Braun@uk-koeln.de" class="contact-email">Till.Braun@uk-koeln.de</a>
+        </div>
+      </div>
+
+      <!-- Marco Herling -->
+      <div style="background:#fff; border:1px solid #EAECEA; border-radius:18px; padding:clamp(24px,3vw,32px);">
+        <div style="display:flex; align-items:center; gap:14px;">
+          <div style="width:50px; height:50px; border-radius:12px; background:#06294F; color:#7FC0FF; display:flex; align-items:center; justify-content:center; font-weight:900; font-size:18px; letter-spacing:-.01em; flex-shrink:0;">MH</div>
+          <div>
+            <div style="font-weight:800; font-size:19px; letter-spacing:-.01em; white-space:nowrap;">Marco Herling</div>
+            <div style="font-size:13.5px; color:#0078E4; font-weight:600;">Coordinator</div>
+          </div>
+        </div>
+        <div style="height:1px; background:#EFF1F0; margin:22px 0;"></div>
+        <div style="display:flex; gap:12px; align-items:flex-start;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#06294F" stroke-width="1.7" style="flex-shrink:0; margin-top:2px;"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div style="font-size:14.5px; line-height:1.55; color:#4C5663;">Department of Hematology, Cell Therapy, and Hemostaseology, University Hospital Leipzig<br>Liebigstrasse 18, 04103 Leipzig, Germany</div>
+        </div>
+        <div style="display:flex; gap:12px; align-items:center; margin-top:16px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#06294F" stroke-width="1.7" style="flex-shrink:0;"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          <a href="mailto:Marco.Herling@medizin.uni-leipzig.de" class="contact-email">Marco.Herling@medizin.uni-leipzig.de</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div style="max-width:1280px; margin:0 auto; height:1px; background:rgba(255,255,255,.12);"></div>
+  <div class="footer-inner">
+    <div style="min-width:240px;">
+      <div style="display:inline-flex; align-items:center; background:#fff; border-radius:12px; padding:12px 16px;">
+        <img src="assets/brand/logo.png" alt="ImmuneT-ME" style="height:54px; width:auto; display:block;">
+      </div>
+      <p style="font-size:14.5px; line-height:1.65; color:rgba(224,238,255,.6); margin:18px 0 0; max-width:280px;">An EU-wide consortium decoding the immune tumor microenvironment in mature T-cell malignancies.</p>
+    </div>
+    <div>
+      <div style="font-size:13px; letter-spacing:.04em; text-transform:uppercase; color:#7FC0FF; font-weight:600; margin-bottom:18px;">Explore</div>
+      <a href="index.html" class="footer-nav-link">Home</a>
+      <a href="about.html" class="footer-nav-link">About</a>
+      <a href="news.html" class="footer-nav-link">News</a>
+      <a href="publications.html" class="footer-nav-link">Publications</a>
+      <a href="previous-consortia.html" class="footer-nav-link">Previous Consortia</a>
+    </div>
+    <div>
+      <div style="font-size:13px; letter-spacing:.04em; text-transform:uppercase; color:#7FC0FF; font-weight:600; margin-bottom:18px;">Contact</div>
+      <div style="font-size:13px; color:rgba(224,238,255,.5);">Coordination</div>
+      <div style="font-size:15px; color:rgba(224,238,255,.85); margin-top:3px;">Marco Herling · Leipzig</div>
+      <div style="font-size:13px; color:rgba(224,238,255,.5); margin-top:14px;">Project lead</div>
+      <div style="font-size:15px; color:rgba(224,238,255,.85); margin-top:3px;">Till Braun · Cologne</div>
+      <a href="contact.html" class="footer-contact-link">Contact the team <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+  <div style="max-width:1280px; margin:0 auto; height:1px; background:rgba(255,255,255,.1);"></div>
+  <div style="max-width:1280px; margin:0 auto; padding:24px clamp(20px,4vw,44px) 40px; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:14px;">
+    <div style="font-size:14px; color:rgba(224,238,255,.55);">© ImmuneT-ME Consortium · ImmuneT-ME.eu</div>
+    <div style="display:flex; gap:24px; align-items:center;">
+      <a href="#" class="footer-meta-link">Privacy Policy</a>
+      <a href="#" class="footer-meta-link">Imprint</a>
+      <span style="font-size:13px; color:rgba(224,238,255,.4);">Funded by EP PerMed</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const burger = document.getElementById('burger');
+  const menu = document.getElementById('mobile-menu');
+  burger.addEventListener('click', () => { const o = menu.classList.toggle('open'); burger.setAttribute('aria-expanded', o); });
+
+  const form = document.getElementById('contact-form');
+  const successState = document.getElementById('success-state');
+  const resetBtn = document.getElementById('reset-btn');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    form.style.display = 'none';
+    successState.style.display = 'flex';
+  });
+
+  resetBtn.addEventListener('click', () => {
+    form.reset();
+    successState.style.display = 'none';
+    form.style.display = 'block';
+  });
+</script>
+</body>
+</html>
