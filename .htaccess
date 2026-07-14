@@ -10,17 +10,27 @@ ErrorDocument 404 /404.html
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
-  # Force HTTPS
-  RewriteCond %{HTTPS} off
-  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
-  # Force non-www (www.immunet-me.eu -> immunet-me.eu)
-  RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-  RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+  # Force HTTPS + non-www in a single hop (http://www., http://, https://www. all -> https://immunet-me.eu)
+  RewriteCond %{HTTPS} off [OR]
+  RewriteCond %{HTTP_HOST} ^www\. [NC]
+  RewriteRule ^ https://immunet-me.eu%{REQUEST_URI} [L,R=301]
 
   # Old German legal-page filenames -> current English filenames
   RewriteRule ^datenschutz\.html$ /privacy-policy.html [L,R=301]
   RewriteRule ^impressum\.html$ /imprint.html [L,R=301]
+
+  # index.html -> root
+  RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+  RewriteRule ^index\.html$ / [L,R=301]
+
+  # Clean URLs: redirect visible .html requests to the extensionless form
+  RewriteCond %{THE_REQUEST} \s/+(.+)\.html[\s?] [NC]
+  RewriteRule ^ /%1 [L,R=301]
+
+  # ...and serve the matching .html file internally for the extensionless URL
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}\.html -f
+  RewriteRule ^([^.]+)$ $1.html [L]
 </IfModule>
 
 # ── Security headers ──

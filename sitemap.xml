@@ -7,31 +7,31 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://immunet-me.eu/about.html</loc>
+    <loc>https://immunet-me.eu/about</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://immunet-me.eu/news.html</loc>
+    <loc>https://immunet-me.eu/news</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://immunet-me.eu/publications.html</loc>
+    <loc>https://immunet-me.eu/publications</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://immunet-me.eu/previous-consortia.html</loc>
+    <loc>https://immunet-me.eu/previous-consortia</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://immunet-me.eu/contact.html</loc>
+    <loc>https://immunet-me.eu/contact</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
