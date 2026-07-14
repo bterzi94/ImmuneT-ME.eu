@@ -27,6 +27,7 @@
   <meta name="twitter:image" content="https://immunet-me.eu/assets/brand/social-share.jpg">
   <link rel="stylesheet" href="assets/fonts/fonts.css">
   <link rel="stylesheet" href="style.css">
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 
@@ -83,7 +84,7 @@
       </div>
 
       <!-- Form -->
-      <form id="contact-form" novalidate>
+      <form id="contact-form" novalidate method="POST" action="https://submit-form.com/DVfEeNlTO">
         <div style="font-weight:800; font-size:20px; letter-spacing:-.01em;">Send a message</div>
         <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:16px; margin-top:22px;">
           <div>
@@ -111,6 +112,8 @@
           <input id="consent" type="checkbox" name="consent" required style="margin-top:2px; width:16px; height:16px; flex-shrink:0; accent-color:#0078E4; cursor:pointer;">
           <span style="font-size:12.5px; line-height:1.5; color:#52606E;">I consent to the processing of my personal data for the purpose of responding to my enquiry, in line with the <a href="datenschutz.html" style="color:#0078E4; text-decoration:underline;">Privacy Policy</a>. I can withdraw this consent at any time.</span>
         </label>
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAAD1tpy9e3WeD6lzp" style="margin-top:18px;"></div>
+        <p id="form-error" style="display:none; font-size:13.5px; color:#C0392B; margin:14px 0 0;">Something went wrong sending your message. Please try again or email us directly.</p>
         <button type="submit" class="btn-submit" style="margin-top:22px;">Send message</button>
         <p style="font-size:12.5px; color:#9AA0A8; margin:14px 0 0; text-align:center;">We'll only use your details to respond to your enquiry.</p>
       </form>
@@ -208,16 +211,40 @@
   const form = document.getElementById('contact-form');
   const successState = document.getElementById('success-state');
   const resetBtn = document.getElementById('reset-btn');
+  const formError = document.getElementById('form-error');
+  const submitBtn = form.querySelector('.btn-submit');
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (!form.checkValidity()) { form.reportValidity(); return; }
-    form.style.display = 'none';
-    successState.style.display = 'flex';
+
+    formError.style.display = 'none';
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    const data = Object.fromEntries(new FormData(form).entries());
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      form.style.display = 'none';
+      successState.style.display = 'flex';
+    } catch (err) {
+      formError.style.display = 'block';
+      if (window.turnstile) turnstile.reset();
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send message';
+    }
   });
 
   resetBtn.addEventListener('click', () => {
     form.reset();
+    if (window.turnstile) turnstile.reset();
     successState.style.display = 'none';
     form.style.display = 'block';
   });
