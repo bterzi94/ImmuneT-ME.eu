@@ -45,6 +45,8 @@ ErrorDocument 404 /404.html
   ExpiresByType image/svg+xml "access plus 1 year"
   ExpiresByType image/x-icon "access plus 1 year"
   ExpiresByType application/manifest+json "access plus 1 week"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType application/font-woff2 "access plus 1 year"
 </IfModule>
 
 # ── Prevent directory listing ──
